@@ -80,7 +80,7 @@ def python_data_stream_example():
     ds.window_all(ProcessingTimeSessionWindows.with_gap(Time.seconds(10))) \
         .reduce(MaxTemperatureReducer()) \
         .map(RowStringTransform(), Types.STRING()) \
-        .sink_to(sliding_window_sink)
+        .sink_to(session_window_sink)
     env.execute_async("Max temperature in window")
 
 
