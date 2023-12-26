@@ -19,7 +19,7 @@ def backoff(tries: int, sleep: int):
                     return func(*args, **kwargs)
                 except Exception as e:
                     n_tries += 1
-                    if tries < n_tries:
+                    if n_tries < tries:
                         time.sleep(sleep)
                     else:
                         raise e
